@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar mode="ios" color="primary">
+    <ion-buttons class="titolo" slot="end">
+      <ion-button style="background-color: red;" (click)="logout">
+        <ion-text ><p style="font-size: small;">Logout</p></ion-text>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="titolo">
+      <h1>Love MEnsa</h1>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="data_box ion-text-center ion-margin-bottom ion-margin-start ion-margin-end" style="margin-top:3%;">
+    <ion-text color="dark">
+      <p style="font-size: small;">You haven't chosen a favourite canteen yet.</p>
+      <p style="font-size: small;">You can choose one by tapping the ♥ icon in the canteen details page</p>
+      <ion-button class="background-primary" style="margin: 5%;" expand="block" fill="outline">Canteens</ion-button>
+    </ion-text>
+  </div>
+  <h4 style="color: green;" class="ion-text-center">Choose a payment modality:</h4>
+  <div class=" ion-text-center ion-margin-bottom ion-margin-start ion-margin-end" style="margin-top:3%;">
+    <ion-button style="font-size: small; width:fit-content">Card</ion-button>
+    <ion-button style="font-size: small; width:fit-content">Paypal</ion-button>
+    <ion-button style="font-size: small; width:fit-content">Wallet</ion-button>
+    <ion-button style="font-size: small; width:fit-content">Cash</ion-button>
+  </div>
+</ion-content>
