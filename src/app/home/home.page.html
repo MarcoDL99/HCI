@@ -2,7 +2,9 @@
   <ion-toolbar mode="ios" color="primary">
     <ion-buttons class="titolo" slot="end">
       <ion-button style="background-color: red;" (click)="logout">
-        <ion-text ><p style="font-size: small;">Logout</p></ion-text>
+        <ion-text>
+          <p style="font-size: small;">Logout</p>
+        </ion-text>
       </ion-button>
     </ion-buttons>
     <ion-title class="titolo">
@@ -12,7 +14,8 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div class="data_box ion-text-center ion-margin-bottom ion-margin-start ion-margin-end" style="margin-top:3%;">
+  <div class="data_box ion-text-center ion-margin-bottom ion-margin-start ion-margin-end"
+    style="margin-top:25%; margin-bottom: 10%">
     <ion-text color="dark">
       <p style="font-size: small;">You haven't chosen a favourite canteen yet.</p>
       <p style="font-size: small;">You can choose one by tapping the ♥ icon in the canteen details page</p>
@@ -20,10 +23,26 @@
     </ion-text>
   </div>
   <h4 style="color: green;" class="ion-text-center">Choose a payment modality:</h4>
-  <div class=" ion-text-center ion-margin-bottom ion-margin-start ion-margin-end" style="margin-top:3%;">
-    <ion-button style="font-size: small; width:fit-content">Card</ion-button>
-    <ion-button style="font-size: small; width:fit-content">Paypal</ion-button>
-    <ion-button style="font-size: small; width:fit-content">Wallet</ion-button>
-    <ion-button style="font-size: small; width:fit-content">Cash</ion-button>
+  <div class=" ion-text-center ion-margin-bottom " style="margin-top:5%;">
+    <ion-button style="font-size: small; width:20%">Card</ion-button>
+    <ion-button style="font-size: small; width:20%">Paypal</ion-button>
+    <ion-button style="font-size: small; width:20%">Wallet</ion-button>
+    <ion-button style="font-size: small; width:20%">Cash</ion-button>
+  </div>
+  <div class="data_box ion-text-center ion-margin-bottom ion-margin-start ion-margin-end"
+    style="margin-top:25%; margin-bottom: 10%">
+    <ion-text color="dark">
+      <h4 style="color: green;" class="ion-text-center">Your wallet balance is:</h4>
+      <div  class=" ion-text-center ion-margin-bottom " style="display: flex; justify-content: center; margin-right: 5%; ">
+        <button class="ion-text-center" style="border-radius:100%; background-color: green; width: 10%; height:10%;">
+          <ion-text style="color: black;">+</ion-text>
+        </button>
+        <p>500.00 €</p>
+        <ion-button class="background-primary" >
+          <ion-icon slot="icon-only" src="assets/svg/phone.svg" size="big"></ion-icon>
+        </ion-button>
+      </div>
+
+    </ion-text>
   </div>
 </ion-content>
