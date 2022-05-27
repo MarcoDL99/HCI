@@ -1,9 +1,9 @@
 <ion-header>
   <ion-toolbar mode="ios" color="primary">
     <ion-buttons class="titolo" slot="end">
-      <ion-button style="background-color: red;" (click)="logout">
+      <ion-button fill="outline" color="dark"style="background-color: red;" (click)="logout()">
         <ion-text>
-          <p style="font-size: small;">Logout</p>
+          <p style="font-size: big; color: white">Logout</p>
         </ion-text>
       </ion-button>
     </ion-buttons>
@@ -14,7 +14,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div class="data_box ion-text-center ion-margin-bottom ion-margin-start ion-margin-end"
+  <div class="data_box ion-text-center ion-margin-bottom ion-margin-start ion-margin-end" *ngIf="!hasFavourite"
     style="margin-top:25%; margin-bottom: 10%">
     <ion-text color="dark">
       <p style="font-size: small;">You haven't chosen a favourite canteen yet.</p>
@@ -26,8 +26,24 @@
       <ion-icon src="assets/svg/canteens.svg" style="color: black; font-size: 11vw; margin:auto; margin-left:5%">
       </ion-icon>
     </ion-button>
-
   </div>
+  <div class="data_box ion-text-center ion-margin-bottom ion-margin-start ion-margin-end" *ngIf="hasFavourite"
+  style="margin-top:25%; margin-bottom: 10%">
+  <ion-text color="dark">
+    <h4 style="color: green;" class="ion-text-center">Sette Sale</h4>
+  </ion-text>
+  <ion-button class="background-primary" style="width: 60%; display:flex; margin: auto; margin-bottom: 5%; height: 13vw"
+    fill="outline">
+    <ion-text style="font-size: 7vw; color: black; margin: auto; ">Menu</ion-text>
+    <ion-icon src="assets/svg/menu.svg" style="color: black; font-size: 10vw; margin:auto; margin-left:5%">
+    </ion-icon>
+  </ion-button>
+  <ion-button class="background-primary" style="margin-bottom: 5%">
+    <ion-text style="font-size: 5vw; color: black">
+      Canteen Details
+    </ion-text>
+  </ion-button>
+</div>
   <h4 style="color: green;" class="ion-text-center">Choose a payment modality:</h4>
   <div class=" ion-text-center ion-margin-bottom " style="margin-top:5%;">
     <ion-button fill="white" style="width:17.5%; height:15vw; margin-right:3%; border-radius:5%; border-style: solid; border-color: black; border-width: 1.1px;">
@@ -71,9 +87,10 @@
         <ion-text style="color: white; font-size:x-large">+</ion-text>
       </button>
       <div style="display: flex; justify-content: center; ">
-        <ion-text class="ion-text-center" style="white-space: nowrap; margin: auto">€ 500.00</ion-text>
-        <button class="ion-text-center" style="margin-left:1%; width: fit-content; background-color: transparent">
-          <ion-icon slot="icon-only" src="assets/svg/eye.svg" style="font-size: 7vw"></ion-icon>
+        <ion-text class="ion-text-center" style="white-space: nowrap; margin: auto">{{credit}}</ion-text>
+        <button class="ion-text-center" style="margin-right:5vw; width: fit-content; background-color: transparent" (click)="toggleShowCredit()">
+          <ion-icon slot="icon-only" *ngIf="!showCredit"src="assets/svg/eye.svg" style="font-size: 7vw"></ion-icon>
+          <ion-icon slot="icon-only" *ngIf="showCredit" src="assets/svg/eyeoff.svg" style="font-size: 7vw"></ion-icon>
         </button>
       </div>
 
@@ -97,7 +114,7 @@
         <ion-text style="font-size: 2.5vw; color: black; margin: auto; ">Canteens</ion-text>
       </div>
     </ion-button>
-    <ion-button fill="white" style="width:25%; height:15vw; margin:0%; border-radius:5%; border-style: solid; border-color: black; border-width: 1.1px;">
+    <ion-button fill="white"style="width:25%; height:15vw; margin:0%;border-radius:5%; border-style: solid; border-color: black; border-width: 1.1px;">
       <div style="display:grid; grid-template-columns: auto auto ; grid: auto/auto; text-align:center">
         <ion-icon src="assets/svg/home.svg" style="color: black; font-size: 9.5vw; margin:auto; padding-bottom:1vw ">
         </ion-icon>
@@ -111,7 +128,7 @@
         <ion-text style="font-size: 2.5vw; color: black; margin: auto; ">Payments</ion-text>
       </div>
     </ion-button>
-    <ion-button fill="white" style="width:18.75%; height:15vw; margin:0%; border-radius:5%; border-style: solid; border-color: black; border-width: 1.1px;">
+    <ion-button fill="clear" style="width:18.75%; height:15vw; margin:0%; border-radius:5%; border-style: solid; border-color: black; border-width: 1.1px;">
       <div style="display:grid; grid-template-columns: auto auto ; grid: auto/auto; text-align:center">
         <ion-icon src="assets/svg/profile.svg" style="color: black; font-size: 9.5vw; margin:auto; padding-bottom:1vw">
         </ion-icon>
