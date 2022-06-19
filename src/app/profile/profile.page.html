@@ -1,0 +1,114 @@
+<ion-header>
+  <ion-toolbar mode="ios" color="primary">
+    <ion-buttons class="titolo" slot="end">
+      <ion-button fill="outline" color="dark" style="background-color: red;" (click)="logout()">
+        <ion-text>
+          <p style="font-size: big; color: white">Logout</p>
+        </ion-text>
+      </ion-button>
+    </ion-buttons>
+    <ion-title style="width: fit-content;">
+      <h1 style="color: rgb(0, 255, 0);">Love <strong style="color: rgb(255, 0, 0);">ME</strong>nsa</h1>
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="data_box ion-text-center ion-margin-bottom ion-margin-start ion-margin-end"
+    style="margin-top:25%; margin-bottom: 10%">
+    <ion-text>
+      <h4 style="color: green;" class="ion-text-center">Your Profile</h4>
+    </ion-text>
+    <div style="margin-top: 5%">
+      <ion-text><strong style="margin-right: 10%">Mail: </strong>{{user$.mail}}</ion-text><br>
+    </div>
+    <div style="margin-top: 5%; width: 100%; margin-left:0%">
+      <ion-button class="background-primary" style="width: 30%; margin-left: 15%; margin-right:5%; margin-bottom: 5%"
+        fill="outline" (click)="gotoChange('mail')">
+        <ion-text style="font-size: 3vw; color: black; margin: auto; "><strong>Change<br> Email</strong></ion-text>
+      </ion-button>
+      <ion-button class="background-primary" style="width: 30%;  margin-right:15%;  margin-bottom: 5%" fill="outline"
+        (click)="gotoChange('password')">
+        <ion-text style="font-size: 3vw; color: black; margin: auto; "><strong>Change <br>Password</strong></ion-text>
+      </ion-button>
+      <div style="border-style: solid; border-radius: 25px; border-color: black;  background-color: rgba(255, 206, 70, 0.89); width: 90%;
+        margin-left: 5%; margin-right:5%; margin-bottom: 5%;">
+        <div style="margin-top: 5%; margin-bottom: 3%; display: flex;">
+          <div style="margin-left: 5%; width:fit-content">
+            <ion-text style="font-size: 4vw;">Your last request<br> was sent on date:</ion-text>
+          </div>
+          <div style="margin-top: 4vw; margin-left: 20%; margin-right: auto; width:fit-content">
+            <ion-text style="font-size: 4vw;"><strong>{{user$.requestdate}} </strong></ion-text>
+          </div>
+        </div>
+        <div style="margin-top: 5%; margin-bottom: 5%; display: flex;">
+          <div style="margin-left: 5%; width:fit-content">
+            <ion-text style="font-size: 4vw;">Request Status:</ion-text>
+          </div>
+          <div style="margin-left: 35%; margin-right: auto; width:fit-content">
+            <ion-text style="font-size: 4vw;">
+              <strong style="color: green; " *ngIf="user$.status==0">Approved </strong>
+              <strong *ngIf="user$.status==1">Pending for Approval </strong>
+              <strong style="color: red" *ngIf="user$.status==2">Denied </strong>
+            </ion-text>
+          </div>
+        </div>
+        <ion-button class="background-primary"
+          style="width: 80%; margin-left: 10%; margin-right: 10%; margin-bottom: 5%" fill="outline"
+          (click)="gotoChange('request')">
+          <ion-text style="font-size: 4vw; color: black; margin: auto; "><strong>Send a New Request</strong></ion-text>
+        </ion-button>
+
+      </div>
+    </div>
+
+  </div>
+  <ion-button class="background-primary" style="width: 80%; margin-left: 10%; margin-right: 10%; margin-bottom: 5%"
+    fill="outline" (click)="changeStatus()">
+    <ion-text style="font-size: 4vw; color: black; margin: auto; "><strong>Testing: switch status</strong></ion-text>
+  </ion-button>
+</ion-content>
+<ion-footer collapse="fade" style="height: 15vw; margin-bottom:5vw;">
+  <ion-toolbar style="width: 100%; height:15vw; display:flex; justify-content: center; align-items: center; ">
+    <ion-button fill="white" (click)="gotoRegions()"
+      style="width:18.75%; height:15vw; margin:0%; border-radius:5%; border-style: solid; border-color: black; border-width: 1.1px;">
+      <div style="display:grid; grid-template-columns: auto auto auto ; grid: auto/auto; text-align:center">
+        <ion-icon src="assets/svg/change.svg" style="color: black; font-size: 7.5vw; margin:auto; padding-bottom:1vw ">
+        </ion-icon>
+        <ion-text style="font-size: 2.5vw; color: black; margin: auto; ">Change <br />Region</ion-text>
+      </div>
+    </ion-button>
+    <ion-button fill="white" (click)="gotoCanteens()"
+      style="width:18.75%; height:15vw; margin:0%; border-radius:5%; border-style: solid; border-color: black; border-width: 1.1px;">
+      <div style="display:grid; grid-template-columns: auto auto ; grid: auto/auto; text-align:center">
+        <ion-icon src="assets/svg/canteens.svg"
+          style="color: black; font-size: 9.5vw; margin:auto; padding-bottom:1vw "></ion-icon>
+        <ion-text style="font-size: 2.5vw; color: black; margin: auto; ">Canteens</ion-text>
+      </div>
+    </ion-button>
+    <ion-button fill="white" (click)="gotoHome()"
+      style="width:25%; height:15vw; margin:0%;border-radius:5%; border-style: solid; border-color: black; border-width: 1.1px;">
+      <div style="display:grid; grid-template-columns: auto auto ; grid: auto/auto; text-align:center">
+        <ion-icon src="assets/svg/home.svg" style="color: black; font-size: 9.5vw; margin:auto; padding-bottom:1vw ">
+        </ion-icon>
+        <ion-text style="font-size: 3vw; color: black; margin: auto; ">Home</ion-text>
+      </div>
+    </ion-button>
+    <ion-button fill="white" (click)="gotoPayments()"
+      style="width:18.75%; height:15vw; margin:0%; border-radius:5%; border-style: solid; border-color: black; border-width: 1.1px;">
+      <div style="display:grid; grid-template-columns: auto auto ; grid: auto/auto; text-align:center">
+        <ion-icon src="assets/svg/payments.svg"
+          style="color: black; font-size: 9.5vw; margin:auto; padding-bottom:1vw "></ion-icon>
+        <ion-text style="font-size: 2.5vw; color: black; margin: auto; ">Payments</ion-text>
+      </div>
+    </ion-button>
+    <ion-button fill="solid"
+      style="width:18.75%; height:15vw; margin:0%; border-radius:5%; border-style: solid; border-color: black; border-width: 1.1px;">
+      <div style="display:grid; grid-template-columns: auto auto ; grid: auto/auto; text-align:center">
+        <ion-icon src="assets/svg/profile.svg" style="color: black; font-size: 9.5vw; margin:auto; padding-bottom:1vw">
+        </ion-icon>
+        <ion-text style="font-size: 2.5vw; color: black; margin: auto; ">Profile</ion-text>
+      </div>
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

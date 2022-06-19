@@ -1,0 +1,122 @@
+<ion-header>
+  <ion-toolbar mode="ios" color="primary">
+    <ion-buttons slot="start" style="margin-left: 1%;">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="width: fit-content;">
+      <h1 style="color: rgb(0, 255, 0);">Love <strong style="color: rgb(255, 0, 0);">ME</strong>nsa</h1>
+    </ion-title>
+    <ion-buttons slot="end" style="margin-right: 5%;" (click)="info()">
+      <ion-icon slot="icon-only" src="assets/svg/info.svg"
+        style="color: rgb(255, 208, 0); background-color: black; border-radius:100%"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="data_box ion-text-center ion-margin-bottom ion-margin-start ion-margin-end" style="margin-top:15%;">
+    <div style="margin-top: 5%;">
+      <ion-text style="color: black;font-size: 5vw;">
+        <strong>Secure Card Registration</strong>
+      </ion-text>
+    </div>
+    <div>
+      <ion-text style="font-size: 15vw;">
+        <ion-icon style="margin-right:5vw" src="assets/svg/visa.svg"></ion-icon>
+        <ion-icon style="margin-right:5vw" src="assets/svg/mastercard.svg"></ion-icon>
+        <ion-icon src="assets/svg/american.svg"></ion-icon>
+      </ion-text>
+    </div>
+    <div style="margin-left: 5%; width: fit-content; display: grid">
+      <ion-text class="ion-text-center" style="font-size: 4vw">Card Number</ion-text>
+      <div style="margin-top:3%">
+        <div style="display: flex">
+          <ion-img style="margin-right:10%; border: black 1px; width:10%" src="assets/svg/card.svg"></ion-img>
+          <ion-input placeholder="1234 1234 1234 1234" id="cardnumber" type="number"
+            style="width: 70%; height:8vw; margin-left:5%; margin-right:5%; border: solid black 1px"></ion-input>
+        </div>
+      </div>
+    </div>
+    <div style="margin-left: 5%; margin-top:5%; width: fit-content; display: grid">
+      <div style="width: 100%;">
+        <ion-text class="ion-text-center" style="font-size: 4vw">Expiry Date</ion-text>
+      </div>
+      <div style="margin-top:3%">
+        <div style="display: flex">
+          <ion-img style="margin-right:10%; border: black 1px; width:10%" src="assets/svg/date.svg"></ion-img>
+          <ion-input placeholder="01/99" id="date" 
+            style="width: 30%; height:8vw; margin-left:5%; margin-right:5%; border: solid black 1px"></ion-input>
+        </div>
+      </div>
+    </div>
+    <div style="margin-left: 5%; margin-top:5%; width: fit-content; display: grid">
+      <ion-text class="ion-text-center" style="font-size: 4vw">CVV2 or 4DBC</ion-text>
+      <div style="margin-top:3%">
+        <div style="display: flex">
+          <ion-img style="margin-right:10%; border: black 1px; width:10%" src="assets/svg/lock.svg"></ion-img>
+          <ion-input placeholder="123" id="cvv" type="number"
+            style="width: 10%; height:8vw; margin-left:5%; margin-right:5%; border: solid black 1px"></ion-input>
+        </div>
+      </div>
+    </div>
+    <div style="margin-left: 5%; margin-top:5%; margin-bottom:5%; width: fit-content; display: grid">
+      <ion-text class="ion-text-center" style="font-size: 4vw">Card Holder</ion-text>
+      <div style="margin-top:3%">
+        <div style="display: flex">
+          <ion-img style="margin-right:10%; border: black 1px; width:10%" src="assets/svg/profile.svg"></ion-img>
+          <ion-input placeholder="Marco Rossi" id="holder"
+            style="width: 70%; height:8vw; margin-left:5%; margin-right:5%; border: solid black 1px"></ion-input>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ion-button class="background-primary"
+    style="width: 80%; margin-left: 10%; margin-right: 10%; margin-bottom: 5%; margin-top:5%" fill="outline"
+    (click)="confirm()">
+    <ion-text style="font-size: 4vw; color: black; margin: auto; "><strong>Confirm</strong></ion-text>
+  </ion-button>
+</ion-content>
+<ion-footer collapse="fade" style="height: 15vw; margin-bottom:5vw;">
+  <ion-toolbar style="width: 100%; height:15vw; display:flex; justify-content: center; align-items: center; ">
+    <ion-button fill="white" (click)="gotoRegions()"
+      style="width:18.75%; height:15vw; margin:0%; border-radius:5%; border-style: solid; border-color: black; border-width: 1.1px;">
+      <div style="display:grid; grid-template-columns: auto auto auto ; grid: auto/auto; text-align:center">
+        <ion-icon src="assets/svg/change.svg" style="color: black; font-size: 7.5vw; margin:auto; padding-bottom:1vw ">
+        </ion-icon>
+        <ion-text style="font-size: 2.5vw; color: black; margin: auto; ">Change <br />Region</ion-text>
+      </div>
+    </ion-button>
+    <ion-button fill="white" (click)="gotoCanteens()"
+      style="width:18.75%; height:15vw; margin:0%; border-radius:5%; border-style: solid; border-color: black; border-width: 1.1px;">
+      <div style="display:grid; grid-template-columns: auto auto ; grid: auto/auto; text-align:center">
+        <ion-icon src="assets/svg/canteens.svg"
+          style="color: black; font-size: 9.5vw; margin:auto; padding-bottom:1vw "></ion-icon>
+        <ion-text style="font-size: 2.5vw; color: black; margin: auto; ">Canteens</ion-text>
+      </div>
+    </ion-button>
+    <ion-button fill="white" (click)="gotoHome()"
+      style="width:25%; height:15vw; margin:0%;border-radius:5%; border-style: solid; border-color: black; border-width: 1.1px;">
+      <div style="display:grid; grid-template-columns: auto auto ; grid: auto/auto; text-align:center">
+        <ion-icon src="assets/svg/home.svg" style="color: black; font-size: 9.5vw; margin:auto; padding-bottom:1vw ">
+        </ion-icon>
+        <ion-text style="font-size: 3vw; color: black; margin: auto; ">Home</ion-text>
+      </div>
+    </ion-button>
+    <ion-button fill="white" (click)="gotoPayments()"
+      style="width:18.75%; height:15vw; margin:0%; border-radius:5%; border-style: solid; border-color: black; border-width: 1.1px;">
+      <div style="display:grid; grid-template-columns: auto auto ; grid: auto/auto; text-align:center">
+        <ion-icon src="assets/svg/payments.svg"
+          style="color: black; font-size: 9.5vw; margin:auto; padding-bottom:1vw "></ion-icon>
+        <ion-text style="font-size: 2.5vw; color: black; margin: auto; ">Payments</ion-text>
+      </div>
+    </ion-button>
+    <ion-button fill="white" (click)="gotoProfile()"
+      style="width:18.75%; height:15vw; margin:0%; border-radius:5%; border-style: solid; border-color: black; border-width: 1.1px;">
+      <div style="display:grid; grid-template-columns: auto auto ; grid: auto/auto; text-align:center">
+        <ion-icon src="assets/svg/profile.svg" style="color: black; font-size: 9.5vw; margin:auto; padding-bottom:1vw">
+        </ion-icon>
+        <ion-text style="font-size: 2.5vw; color: black; margin: auto; ">Profile</ion-text>
+      </div>
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

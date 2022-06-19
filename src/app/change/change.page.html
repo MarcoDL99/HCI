@@ -1,0 +1,180 @@
+<ion-header>
+  <ion-toolbar mode="ios" color="primary">
+    <ion-buttons slot="start" style="margin-left: 1%;">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="width: fit-content;">
+      <h1 style="color: rgb(0, 255, 0);">Love <strong style="color: rgb(255, 0, 0);">ME</strong>nsa</h1>
+    </ion-title>
+    <ion-buttons slot="end" style="margin-right: 5%;" (click)="info()">
+      <ion-icon slot="icon-only" src="assets/svg/info.svg"
+        style="color: rgb(255, 208, 0); background-color: black; border-radius:100%"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="border: solid black 2px; background-color: white; width: 90%;
+  margin-left: 5%; margin-right:5%; margin-top: 5%; " *ngIf="change=='request'">
+    <div style="margin-left: 2%; margin-top: 2%; width: fit-content">
+      <p>If you send a new request, the previous one you sent will be discarded. <strong>You can't access the canteens until the new request is approved</strong></p>
+    </div>
+    <div style="width: 100%; display: flex">
+      <ion-icon slot="icon-only" src="assets/svg/danger.svg"
+        style="font-size: 10vw; color: red; margin-left:0%; margin-bottom:0%; margin-right: auto"></ion-icon>
+      <ion-icon slot="icon-only" src="assets/svg/danger.svg"
+        style="font-size: 10vw; color: red; margin-right:0%; margin-bottom:0%"></ion-icon>
+    </div>
+  </div>
+  <div style="border-style: solid; border-radius: 25px; border-color: black;  background-color: white; width: 90%;
+  margin-left: 5%; margin-right:5%; margin-bottom: 5%; margin-top:10%">
+
+    <div *ngIf="change=='password'"  style="display: grid;">
+      <ion-text>
+        <h4 style="color: green;" class="ion-text-center">Change Password</h4>
+      </ion-text>
+      <ion-item mode="md" style="margin-bottom: 3%">
+        <ion-label style="width:50%; font-size: 4vw"><strong>Current Password:</strong></ion-label>
+        <ion-input placeholder="Enter password" id="password0Change" type="password" style="font-size: 4vw"></ion-input>
+        <button class="ion-text-center" style=" width: fit-content; background-color: transparent"
+          (click)="toggleShow(0)">
+          <ion-icon slot="icon-only" src="assets/svg/eye.svg" style="font-size: 7vw; color:black" id="eye0Change"></ion-icon>
+        </button>
+      </ion-item>
+      <ion-item mode="md" style="margin-bottom: 3%">
+        <ion-label style="width:50%; font-size: 4vw"><strong>New Password:</strong></ion-label>
+        <ion-input placeholder="Enter password" id="password1Change" type="password" style="font-size: 4vw"></ion-input>
+        <button class="ion-text-center" style=" width: fit-content; background-color: transparent"
+          (click)="toggleShow(1)">
+          <ion-icon slot="icon-only" src="assets/svg/eye.svg" style="font-size: 7vw; color:black" id="eye1Change"></ion-icon>
+        </button>
+      </ion-item>
+      <ion-item mode="md" style="margin-bottom: 1%">
+        <ion-label style="width:50%; font-size: 3.5vw"><strong>Confirm New Password:</strong></ion-label>
+        <ion-input placeholder="Enter password" id="password2Change" type="password" style="font-size: 4vw"></ion-input>
+        <button class="ion-text-center" style=" width: fit-content; background-color: transparent"
+          (click)="toggleShow(2)">
+          <ion-icon slot="icon-only" src="assets/svg/eye.svg" style="font-size: 7vw; color:black" id="eye2Change"></ion-icon>
+        </button>
+      </ion-item>
+
+      <ion-label style="margin-left: 5%; margin-right:5%; margin-bottom: 3%">
+        <strong style="font-size: 3vw; color: #0A74FF;">The password should contain at least one upper case, one lower
+          case and one
+          number. The length should be at least 8 characters</strong>
+      </ion-label>
+    </div>
+
+
+    <div *ngIf="change=='mail'" style="display: grid;">
+      <ion-text>
+        <h4 style="color: green;" class="ion-text-center">Change Email Address</h4>
+      </ion-text>
+      <ion-item mode="md">
+        <ion-label style="width: 40%"><strong>New Email:</strong></ion-label>
+        <ion-input placeholder="Enter Email" id="mailChange" style="font-size: 4vw"></ion-input>
+      </ion-item>
+      <ion-item mode="md" style="margin-bottom: 3%">
+        <ion-label style="width:40%"><strong>Password:</strong></ion-label>
+        <ion-input placeholder="Enter password" id="password3Change" type="password" style="font-size: 4vw;"></ion-input>
+        <button class="ion-text-center" style=" width: fit-content; background-color: transparent"
+          (click)="toggleShow(3)">
+          <ion-icon slot="icon-only" src="assets/svg/eye.svg" style="font-size: 7vw; color:black" id="eye3Change"></ion-icon>
+        </button>
+      </ion-item>
+    </div>
+
+
+    <div *ngIf="change=='request'" style="display: grid;">
+      <ion-text>
+        <h4 style="color: green;" class="ion-text-center">Send a New Request</h4>
+      </ion-text>
+      <ion-item mode="md" style="margin-bottom: 3%">
+        <ion-label style="width:40%"><strong>Password:</strong></ion-label>
+        <ion-input placeholder="Enter password" id="password4Change" type="password" style="font-size: 4vw;"></ion-input>
+        <button class="ion-text-center" style=" width: fit-content; background-color: transparent"
+          (click)="toggleShow(4)">
+          <ion-icon slot="icon-only" src="assets/svg/eye.svg" style="font-size: 7vw; color:black" id="eye4Change"></ion-icon>
+        </button>
+      </ion-item>
+      <ion-item mode="md" style="margin-bottom: 3%; margin-top: 5%">
+        <ion-label style="width: fit-content; font-size: 4.5vw"><strong>Picture of Yourself:</strong>
+          <ion-icon slot="icon-only" src="assets/svg/check.svg" style="font-size: 5vw; color: green; margin-left: 15vw"
+            *ngIf="photo1">
+          </ion-icon>
+        </ion-label>
+        <button class="ion-text-center" style=" width: fit-content; background-color: transparent" *ngIf="!photo1"
+          (click)="pic1()">
+          <ion-icon slot="icon-only" src="assets/svg/camera.svg" style="font-size: 7vw; color:black"></ion-icon>
+        </button>
+        <ion-button class="ion-text-center" style=" width: fit-content; border: black" fill="solid" *ngIf="photo1"
+          (click)="pic1()">
+          <ion-label style="font-size: 3vw" *ngIf="photo1">Change </ion-label>
+        </ion-button>
+      </ion-item>
+      <ion-item mode="md" style="margin-bottom: 3%; margin-top: 5%;" >
+        <ion-label style="width:fit-content; font-size: 4.5vw"><strong>Picture of your ID:</strong>
+          <ion-icon slot="icon-only" src="assets/svg/check.svg" style="font-size: 5vw; color: green; margin-left: 18vw;"
+            *ngIf="photo2">
+          </ion-icon>
+        </ion-label>
+        <button class="ion-text-center" style=" width: fit-content; background-color: transparent" *ngIf="!photo2"
+          (click)="pic2()">
+          <ion-icon slot="icon-only" src="assets/svg/camera.svg" style="font-size: 7vw; color:black"></ion-icon>
+        </button>
+        <ion-button class="ion-text-center" style=" width: fit-content; border: black" fill="solid" *ngIf="photo2"
+          (click)="pic2()">
+          <ion-label style="font-size: 3vw" *ngIf="photo2">Change </ion-label>
+        </ion-button>
+      </ion-item>
+    </div>
+
+    <ion-button style="width:80%; margin-top: 15%; margin-left:10%" fill="solid" (click)="confirm()">
+      <ion-text>Confirm</ion-text>
+    </ion-button>
+  </div>
+</ion-content>
+<ion-footer collapse="fade" style="height: 15vw; margin-bottom:5vw;">
+  <ion-toolbar style="width: 100%; height:15vw; display:flex; justify-content: center; align-items: center; ">
+    <ion-button fill="white" (click)="gotoRegions()"
+      style="width:18.75%; height:15vw; margin:0%; border-radius:5%; border-style: solid; border-color: black; border-width: 1.1px;">
+      <div style="display:grid; grid-template-columns: auto auto auto ; grid: auto/auto; text-align:center">
+        <ion-icon src="assets/svg/change.svg" style="color: black; font-size: 7.5vw; margin:auto; padding-bottom:1vw ">
+        </ion-icon>
+        <ion-text style="font-size: 2.5vw; color: black; margin: auto; ">Change <br />Region</ion-text>
+      </div>
+    </ion-button>
+    <ion-button fill="white" (click)="gotoCanteens()"
+      style="width:18.75%; height:15vw; margin:0%; border-radius:5%; border-style: solid; border-color: black; border-width: 1.1px;">
+      <div style="display:grid; grid-template-columns: auto auto ; grid: auto/auto; text-align:center">
+        <ion-icon src="assets/svg/canteens.svg"
+          style="color: black; font-size: 9.5vw; margin:auto; padding-bottom:1vw "></ion-icon>
+        <ion-text style="font-size: 2.5vw; color: black; margin: auto; ">Canteens</ion-text>
+      </div>
+    </ion-button>
+    <ion-button fill="white" (click)="gotoHome()"
+      style="width:25%; height:15vw; margin:0%;border-radius:5%; border-style: solid; border-color: black; border-width: 1.1px;">
+      <div style="display:grid; grid-template-columns: auto auto ; grid: auto/auto; text-align:center">
+        <ion-icon src="assets/svg/home.svg" style="color: black; font-size: 9.5vw; margin:auto; padding-bottom:1vw ">
+        </ion-icon>
+        <ion-text style="font-size: 3vw; color: black; margin: auto; ">Home</ion-text>
+      </div>
+    </ion-button>
+    <ion-button fill="white" (click)="gotoPayments()"
+      style="width:18.75%; height:15vw; margin:0%; border-radius:5%; border-style: solid; border-color: black; border-width: 1.1px;">
+      <div style="display:grid; grid-template-columns: auto auto ; grid: auto/auto; text-align:center">
+        <ion-icon src="assets/svg/payments.svg"
+          style="color: black; font-size: 9.5vw; margin:auto; padding-bottom:1vw "></ion-icon>
+        <ion-text style="font-size: 2.5vw; color: black; margin: auto; ">Payments</ion-text>
+      </div>
+    </ion-button>
+    <ion-button fill="white" (click)="gotoProfile()"
+      style="width:18.75%; height:15vw; margin:0%; border-radius:5%; border-style: solid; border-color: black; border-width: 1.1px;">
+      <div style="display:grid; grid-template-columns: auto auto ; grid: auto/auto; text-align:center">
+        <ion-icon src="assets/svg/profile.svg" style="color: black; font-size: 9.5vw; margin:auto; padding-bottom:1vw">
+        </ion-icon>
+        <ion-text style="font-size: 2.5vw; color: black; margin: auto; ">Profile</ion-text>
+      </div>
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

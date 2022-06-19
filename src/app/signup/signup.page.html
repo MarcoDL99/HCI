@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar mode="ios" color="primary">
+    <ion-buttons slot="start" style="margin-left: 1%;">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="width: fit-content;">
+      <h1 style="color: rgb(0, 255, 0);">Love <strong style="color: rgb(255, 0, 0);">ME</strong>nsa</h1>
+    </ion-title>
+    <ion-buttons slot="end" style="margin-right: 5%;" (click)="info()">
+      <ion-icon slot="icon-only" src="assets/svg/info.svg"
+        style="color: rgb(255, 208, 0); background-color: black; border-radius:100%"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="" style="margin-top:20%; margin-bottom: 10%; width:100%; display: grid;">
+    <ion-item mode="md">
+      <ion-label style="width: 50%"><strong>Mail:</strong></ion-label>
+      <ion-input placeholder="Enter Email" id="mailSignup" style="font-size: 4vw"></ion-input>
+    </ion-item>
+    <ion-item mode="md" style="margin-bottom: 3%">
+      <ion-label style="width:50%"><strong>Password:</strong></ion-label>
+      <ion-input placeholder="Enter password" id="password1Signup" type="password" style="font-size: 4vw"></ion-input>
+      <button class="ion-text-center" style=" width: fit-content; background-color: transparent"
+        (click)="toggleShow1()">
+        <ion-icon slot="icon-only" src="assets/svg/eye.svg" style="font-size: 7vw; color:black" id="eye1Signup"></ion-icon>
+      </button>
+    </ion-item>
+
+    <ion-item mode="md" style="margin-bottom: 1%">
+      <ion-label style="width:50%; font-size: 5vw"><strong>Confirm Password:</strong></ion-label>
+      <ion-input placeholder="Enter password" id="password2Signup" type="password" style="font-size: 4vw"></ion-input>
+      <button class="ion-text-center" style=" width: fit-content; background-color: transparent"
+        (click)="toggleShow2()">
+        <ion-icon slot="icon-only" src="assets/svg/eye.svg" style="font-size: 7vw; color:black" id="eye2Signup"></ion-icon>
+      </button>
+    </ion-item>
+    
+    <ion-label style="margin-left: 5%; margin-right:5%; margin-bottom: 3%">
+      <strong style="font-size: 3vw; color: #0A74FF;">The password should contain at least one upper case, one lower
+        case and one
+        number. The length should be at least 8 characters</strong>
+    </ion-label>
+    <ion-item mode="md" style="margin-bottom: 3%; margin-top: 5%">
+      <ion-label style="width:50%; font-size: 4.5vw"><strong>Upload a picture of Yourself:</strong>
+        <ion-icon slot="icon-only" src="assets/svg/check.svg" style="font-size: 5vw; color: green; margin-left: 7vw"
+          *ngIf="photo1">
+        </ion-icon>
+      </ion-label>
+      <button class="ion-text-center" style=" width: fit-content; background-color: transparent" *ngIf="!photo1"
+        (click)="pic1()">
+        <ion-icon slot="icon-only" src="assets/svg/camera.svg" style="font-size: 7vw; color:black"></ion-icon>
+      </button>
+      <ion-button class="ion-text-center" style=" width: fit-content; border: black" fill="solid" *ngIf="photo1"
+        (click)="pic1()">
+        <ion-label style="font-size: 3vw" *ngIf="photo1">Change </ion-label>
+      </ion-button>
+    </ion-item>
+    <ion-item mode="md" style="margin-bottom: 3%; margin-top: 5%">
+      <ion-label style="width:50%; font-size: 4.5vw"><strong>Upload a picture of your ID:</strong>
+        <ion-icon slot="icon-only" src="assets/svg/check.svg" style="font-size: 5vw; color: green; margin-left: 10vw"
+          *ngIf="photo2">
+        </ion-icon>
+      </ion-label>
+      <button class="ion-text-center" style=" width: fit-content; background-color: transparent" *ngIf="!photo2"
+        (click)="pic2()">
+        <ion-icon slot="icon-only" src="assets/svg/camera.svg" style="font-size: 7vw; color:black"></ion-icon>
+      </button>
+      <ion-button class="ion-text-center" style=" width: fit-content; border: black" fill="solid" *ngIf="photo2"
+        (click)="pic2()">
+        <ion-label style="font-size: 3vw" *ngIf="photo2">Change </ion-label>
+      </ion-button>
+    </ion-item>
+
+    <ion-button style="width:80%; margin-top: 15%; margin-left:10%" fill="solid" (click)="signup()">
+      <ion-text>Sign Up</ion-text>
+    </ion-button><br>
+  </div>
+
+</ion-content>

@@ -25,12 +25,20 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
-.data_box{
+.data_box {
     border-style: solid;
     border-radius: 25px;
     border-color: #0A74FF;
     background-color: lightblue;
 }
-.background-primary{
+
+.background-primary {
     --background: white;
-  }
+}
+
+.menu {
+    border-style: solid;
+    border-radius: 25px;
+    border-color: black;
+    color: #008a00;
+}

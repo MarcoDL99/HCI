@@ -1,28 +1,32 @@
 <ion-header>
   <ion-toolbar mode="ios" color="primary">
     <ion-title class="titolo" style="width: fit-content;">
-      <h1>Love MEnsa</h1>
+      <h1 style="color: rgb(0, 255, 0);">Love <strong style="color: rgb(255, 0, 0);">ME</strong>nsa</h1>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div class="" style="margin-top:25%; margin-bottom: 10%; width:100%; display: grid;">
-    <ion-item mode="md">
-      <ion-label>Username</ion-label>
-      <ion-input placeholder="Enter Username" id="username"></ion-input>
+  <div class="" style="margin-top:45%; margin-bottom: 10%; width:100%; display: grid;">
+    <ion-item mode="md" style="border-top: solid black 1px;border-right: solid black 1px;border-left: solid black 1px" >
+      <ion-label style="width: 50%"><strong>Mail:</strong></ion-label>
+      <ion-input placeholder="Enter Email" id="mailLogin" style="font-size: 4vw"></ion-input>
     </ion-item>
-    <ion-item mode="md" style="margin-bottom: 3%">
-      <ion-label>Password</ion-label>
-      <ion-input placeholder="Enter password" id="password"></ion-input>
+    <ion-item mode="md" style="margin-bottom: 3%; border: solid black 1px">
+      <ion-label style="width:50%"><strong>Password:</strong></ion-label>
+      <ion-input placeholder="Enter password" id="passwordLogin" type="password" style="font-size: 4vw; "></ion-input>
+    <button class="ion-text-center" style=" width: fit-content; background-color: transparent" (click)="toggleShowLogin()">
+      <ion-icon slot="icon-only" src="assets/svg/eye.svg" style="font-size: 7vw; color:black" id="eyeLogin"></ion-icon>
+    </button>
     </ion-item>
+    
     <label style="margin-left: 10%;">
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label><br>
-    <ion-button style="width:100%; margin-top: 5%; " fill="solid" (click)="login()">
+    <ion-button style="width:80%; margin-top: 5%; margin-left:10%" fill="solid" (click)="login()">
       <ion-text>Login</ion-text>
     </ion-button><br>
-    <div style="margin-bottom: 30%; margin-top: 5%">
+    <div style="margin-bottom: 10%;">
       <ion-text class="ion-text-center" style="margin-left: 30%; "><a href="#">Forgot password?</a> </ion-text>
     </div>
   </div>
@@ -30,7 +34,7 @@
   <ion-item-divider style="margin-bottom: 5%"></ion-item-divider>
   <ion-text class="ion-text-center" style="text-align: center; margin-left:20%;">First time? Register here!
   </ion-text>
-  <ion-button style="width:100%; margin-top: 5%;" fill="solid" (click)="signUp()">
+  <ion-button style="width:80%; margin-top: 5%; margin-left: 10%" fill="solid" (click)="gotoSignUp()">
     <ion-text>Sign Up</ion-text>
   </ion-button>
 
